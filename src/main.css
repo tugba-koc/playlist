@@ -25,13 +25,12 @@ nav {
 a {
   text-decoration: none;
   color: white;
-  transition: 0.1s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .nav-menu-links a:not(:first-child) {
   margin-left: 20px;
   padding: 10px;
-  border-radius: 5px;
 }
 
 .nav-menu-links a:first-child {
@@ -42,7 +41,7 @@ a {
 
 .nav-menu-links a:hover:not(:first-child) {
   color: rgb(255, 255, 255);
-  background-color: coral;
+  border-bottom: 1px solid white;
 }
 
 .playlist-link-active {
@@ -56,4 +55,42 @@ a {
 
 .head-line {
   font-size: large;
+}
+
+.landing {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 100%;
+
+  margin-top: 5%;
+  border : 1px solid white;
+}
+
+.landing a {
+  color: rgb(66, 66, 66);
+  font-weight: 600;
+}
+
+.landing-menu-links a {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.landing-nav {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 20px;
+}
+
+.landing-menu-links {
+    margin-left: auto;
+}
+
+.list {
+    padding : 20px;
+    color: white;
+    font-size: 16px;
 }

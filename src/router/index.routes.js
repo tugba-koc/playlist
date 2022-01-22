@@ -8,7 +8,7 @@ const router = (route) => {
     case "#/landing":
       return content.appendChild(pages.landing());
       break;
-    case "#/about":
+    case "#/play":
       console.log("about");
       break;
     case "#/contact":

@@ -8,10 +8,12 @@ window.addEventListener("hashchange", () => {
 let playlist = document.getElementById("playlist-link");
 
 function loop() {
-    setInterval(() => {
-        playlist.classList.toggle("playlist-link-active");
-    }, 1000);
+  playlist.addEventListener("click", function () {
+    playlist.classList.remove("playlist-link-active");
+  });
+  setInterval(() => {
+    playlist.classList.toggle("playlist-link-active");
+  }, 1000);
 }
 
 loop();
-
