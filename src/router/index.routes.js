@@ -1,4 +1,4 @@
-import Home from "../views/home.js";
+import {pages} from "../controllers/index.js";
 
 let content = document.getElementById("root");
 
@@ -6,13 +6,15 @@ const router = (route) => {
   content.innerHTML = "";
   switch (route) {
     case "#/":
-      return content.appendChild(Home());
+      return content.appendChild(pages.home());
       break;
     case "#/about":
-      renderAbout();
+      console.log("about");
+
       break;
     case "#/contact":
-      renderContact();
+      console.log("contact");
+
       break;
     default:
       renderHome();
@@ -20,4 +22,4 @@ const router = (route) => {
   }
 };
 
-export default router;
+export { router };
