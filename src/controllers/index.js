@@ -1,7 +1,7 @@
-import Home from "./home.controller";
+import Landing from "./landing.controller";
 
 const pages = {
-    home : Home
+    landing : Landing
 };
 
 export {pages};
