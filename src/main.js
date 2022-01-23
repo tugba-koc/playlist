@@ -1,5 +1,5 @@
 import "./main.css";
-import { router } from "./router/index.routes";
+import { router } from "./router/index.routes.js";
 
 window.addEventListener("hashchange", () => {
   router(window.location.hash);
@@ -17,3 +17,4 @@ function loop() {
 }
 
 loop();
+

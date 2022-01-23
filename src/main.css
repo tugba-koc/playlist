@@ -65,7 +65,7 @@ a {
   height: 100%;
 
   margin-top: 5%;
-  border : 1px solid white;
+  border: 1px solid white;
 }
 
 .landing a {
@@ -79,18 +79,83 @@ a {
 }
 
 .landing-nav {
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    padding: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 20px;
 }
 
 .landing-menu-links {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .list {
-    padding : 20px;
-    color: white;
-    font-size: 16px;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+}
+
+/* modal */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.modal-header .title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+#overlay {
+  position: fixed;
+  transition: 200ms ease-in-out;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#overlay.active {
+  pointer-events: all;
+  opacity :1 ;
 }
