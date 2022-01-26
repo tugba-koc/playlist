@@ -44,24 +44,41 @@ export default () => {
   // add item to the list
 
   let values = [];
+  let listItems = [];
   let list = divElement.querySelector("#list");
 
   const saveButton = divElement.querySelector(".save");
   const cancelButton = divElement.querySelector(".cancel");
   let inputs = divElement.querySelectorAll("input");
-  let count = 0;
 
-  cancelButton.addEventListener("click", (event) => {
+  let listItemStructure = "";
+
+  cancelButton.addEventListener("click", () => {
     closeModal(modal);
-
     inputs.forEach((input) => {
       input.value = "";
     });
   });
 
-  let listItemStructure = "";
-  function addValues(values) {
-    listItemStructure += `
+  saveButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let id = new Date().getTime();
+
+    inputs.forEach((input) => {
+      values.push(input.value);
+    });
+
+    if (values[0] == "" || values[1] == "") {
+      values = values.slice(3);
+      return false;
+    }
+
+    values.push(id);
+
+    values.unshift(listItems.length + 1);
+
+    list.innerHTML += `
     <li class="list-item">
         
           <p class="list-item-content-text-title">
@@ -76,45 +93,45 @@ export default () => {
         
         <div class="list-item-content-buttons">
           <button class="list-item-content-buttons-edit">
-            <i class="fas fa-pen"></i>
-            edit
+          <i class="fa fa-pencil-square-o fa-lg" ></i>
           </button>
-          <button class="list-item-content-buttons-delete">
-            <i class="fas fa-trash"></i>
-            delete
+          <button id=${values[4]} class="list-item-content-buttons-delete">
+          
+          <i class="fa fa-trash fa-lg" ></i>
           </button>
         </div>
      
     </li>
   `;
-  }
 
-  saveButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    count++;
-    let id = new Date().getTime();
+    listItems.push(values);
 
-    inputs.forEach((input) => {
-      values.push(input.value);
+    let counts = divElement.querySelectorAll(".list-item-content-text-title");
+
+    let deleteButtons = divElement.querySelectorAll(
+      ".list-item-content-buttons-delete"
+    );
+
+    let editButtons = divElement.querySelectorAll(
+      ".list-item-content-buttons-edit"
+    );
+
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        let item = event.target.closest(".list-item");
+        item.remove();
+        counts.forEach((count) => (count.innerHTML = count.innerHTML - 1));
+        listItems = listItems.filter((item) => item[4] != event.target.id);
+      });
     });
 
-    if (values[0] == "" || values[1] == "") {
-      values = values.slice(3);
-      return false;
-    }
 
-    values.push(id);
-
-    values.unshift(count);
-
-    addValues(values);
-
-    console.log(values);
-    list.innerHTML = listItemStructure;
     inputs.forEach((input) => {
       input.value = "";
     });
+
     closeModal(modal);
+
     values = [];
   });
 

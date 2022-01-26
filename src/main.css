@@ -1,3 +1,5 @@
+
+
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -251,4 +253,17 @@ label {
 
 .list-item-content-text-weight {
   margin-left: auto;
+}
+
+.list-item-content-buttons button {
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 4px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin: 8px;
+  cursor: pointer;
 }
