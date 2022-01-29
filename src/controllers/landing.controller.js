@@ -44,7 +44,7 @@ export default () => {
   // add item to the list
 
   let values = [];
-  let listItemsArray = [];
+  window.listItemsArray = [];
   let list = divElement.querySelector("#list");
 
   const saveButton = divElement.querySelector(".save");
@@ -84,7 +84,7 @@ export default () => {
     listItem.classList.add("list-item");
 
     let pTitle = document.createElement("p");
-    pTitle.classList.add("list-item-content-text-title");
+    pTitle.classList.add("list-item-content-text-number");
     pTitle.innerHTML = values[0];
 
     let pDescription = document.createElement("p");
@@ -151,7 +151,7 @@ export default () => {
       listItemsArray.forEach((el) => (el[0] = el[0] - 1));
       let listItems = list.querySelectorAll(".list-item");
       listItems.forEach((item) => {
-        item.querySelector(".list-item-content-text-title").innerHTML =
+        item.querySelector(".list-item-content-text-number").innerHTML =
           listItems.length;
       });
     }
@@ -176,7 +176,7 @@ export default () => {
       saveEditButton.addEventListener("click", (event) => {
         item.querySelector(".list-item-content-text-description").innerHTML =
           inputEditName.value;
-        item.querySelector(".list-item-content-text-title").innerHTML =
+        item.querySelector(".list-item-content-text-number").innerHTML =
           inputEditURL.value;
       });
       list.removeChild(item);
@@ -184,7 +184,7 @@ export default () => {
       listItemsArray.forEach((el) => (el[0] = el[0] - 1));
     }
 
-    console.log(listItemsArray);
+
   });
 
   return divElement;
